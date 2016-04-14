@@ -7,8 +7,6 @@
     LOGIN_USERNAME: '用户名',
     LOGIN_PASSWORD: '密码',
 
-    FOOTER: '只是一个概念证明而已',
-
     FORM_EMAIL: '电子邮件',
     FORM_MOBILE: '手机号码',
     FORM_LANDLINE: '固定电话',

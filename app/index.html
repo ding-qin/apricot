@@ -42,23 +42,18 @@
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/">Contact</a></li>
-              <li class="btn-group" ng-controller="I18nCtrl">
-                  <label class="btn btn-primary" ng-click="changeLanguage('en-US')" ng-model="radioModel" btn-radio="'en-US'">English</label>
-                  <label class="btn btn-primary" ng-click="changeLanguage('zh-CN')" ng-model="radioModel" btn-radio="'zh-CH'">中文</label>
-              </li>
             </ul>
-          </div>
 
-          <div class="pull-right" ng-controller="AuthenticationCtrl">
-            <a ng-href="#/"
-                popover-placement="bottom"
-                popover-trigger="click"
-                uib-popover-template="'loginPopover.html'"
-                popover-title="Please login">
-                <i class="fa fa-sign-in"></i>
-            </a>
+            <div class="pull-right sign-in" ng-controller="AuthenticationCtrl">
+              <a ng-href="#/"
+                  popover-placement="bottom"
+                  popover-trigger="click"
+                  uib-popover-template="'loginPopover.html'"
+                  popover-title="Please login">
+                  <i class="fa fa-sign-in"></i>
+              </a>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -69,7 +64,10 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span>&nbsp;<span translate="FOOTER"></span></p>
+        <div class="btn-group pull-right" ng-controller="I18nCtrl">
+            <label class="btn btn-primary" ng-click="changeLanguage('en-US')" ng-model="radioModel" btn-radio="'en-US'">English</label>
+            <label class="btn btn-primary" ng-click="changeLanguage('zh-CN')" ng-model="radioModel" btn-radio="'zh-CH'">中文</label>
+        </div>
       </div>
     </div>
 

@@ -7,8 +7,6 @@
     LOGIN_USERNAME: 'Username',
     LOGIN_PASSWORD: 'Password',
 
-    FOOTER: 'Nothing but a proof of concept',
-
     FORM_EMAIL: 'Email',
     FORM_MOBILE: 'Mobile Phone',
     FORM_LANDLINE: 'Landline',
