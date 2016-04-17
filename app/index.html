@@ -44,16 +44,18 @@
               <li><a ng-href="#/">Contact</a></li>
             </ul>
 
-            <div class="pull-right sign-in" ng-controller="AuthenticationCtrl">
-              <a ng-href="#/"
+            <div class="nav navbar-nav navbar-right sign-in" ng-controller="AuthenticationCtrl">
+              <button
                   popover-placement="bottom"
                   popover-trigger="click"
                   uib-popover-template="'loginPopover.html'"
-                  popover-title="Please login">
+                  popover-title="Please login"
+                  class="btn btn-default circle-shape">
                   <i class="fa fa-sign-in"></i>
-              </a>
+              </button>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -65,8 +67,20 @@
     <div class="footer">
       <div class="container">
         <div class="btn-group pull-right" ng-controller="I18nCtrl">
-            <label class="btn btn-primary" ng-click="changeLanguage('en-US')" ng-model="radioModel" btn-radio="'en-US'">English</label>
-            <label class="btn btn-primary" ng-click="changeLanguage('zh-CN')" ng-model="radioModel" btn-radio="'zh-CH'">中文</label>
+            <label class="btn btn-default circle-shape"
+                  ng-click="changeLanguage('en-US')"
+                  ng-model="radioModel"
+                  btn-radio="'en-US'"
+                  ng-class="{
+                    'active': radioModel === 'en-US'
+                  }">En</label>
+            <label class="btn btn-default circle-shape"
+                  ng-click="changeLanguage('zh-CN')"
+                  ng-model="radioModel"
+                  btn-radio="'zh-CN'"
+                  ng-class="{
+                    'active': radioModel === 'zh-CN'
+                  }">中</label>
         </div>
       </div>
     </div>

@@ -16,8 +16,10 @@ angular.module('pocApp')
           $translate.use(langKey);
           if (langKey.indexOf('zh') === 0) {
             $scope.region = 'China';
+            $scope.radioModel = 'zh-CN';
           } else {
             $scope.region = 'America';
+            $scope.radioModel = 'en-US';
           }
         };
 
