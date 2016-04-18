@@ -20,7 +20,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <!-- Add your site or application content here
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -58,6 +58,54 @@
 
         </div>
       </div>
+    </div> -->
+
+    <div id="sidebar-wrapper">
+      <div class="" ng-controller="AuthenticationCtrl">
+        <button
+            popover-placement="right"
+            popover-trigger="click"
+            uib-popover-template="'loginPopover.html'"
+            popover-title="Please login"
+            class="btn btn-default circle-shape">
+            <i class="fa fa-sign-in"></i>
+        </button>
+      </div>
+
+      <ul class="sidebar-nav nav-pills nav-stacked">
+        <li class="active">
+          <div class="circle-shape has-border">1</div>
+        </li>
+        <li>
+          <div class="circle-shape has-border">2</div>
+        </li>
+        <li>
+          <div class="circle-shape has-border">3</div>
+        </li>
+        <li>
+          <div class="circle-shape has-border">4</div>
+        </li>
+        <li>
+          <div class="circle-shape has-border">5</div>
+        </li>
+      </ul>
+
+      <div class="btn-group i18n-ctrl" ng-controller="I18nCtrl">
+          <label class="btn btn-default circle-shape"
+                ng-click="changeLanguage('en-US')"
+                ng-model="radioModel"
+                btn-radio="'en-US'"
+                ng-class="{
+                  'active': radioModel === 'en-US'
+                }">En</label>
+          <label class="btn btn-default circle-shape"
+                ng-click="changeLanguage('zh-CN')"
+                ng-model="radioModel"
+                btn-radio="'zh-CN'"
+                ng-class="{
+                  'active': radioModel === 'zh-CN'
+                }">中</label>
+      </div>
     </div>
 
     <div class="container" ng-controller="ApplicationCtrl">
@@ -66,22 +114,7 @@
 
     <div class="footer">
       <div class="container">
-        <div class="btn-group pull-right" ng-controller="I18nCtrl">
-            <label class="btn btn-default circle-shape"
-                  ng-click="changeLanguage('en-US')"
-                  ng-model="radioModel"
-                  btn-radio="'en-US'"
-                  ng-class="{
-                    'active': radioModel === 'en-US'
-                  }">En</label>
-            <label class="btn btn-default circle-shape"
-                  ng-click="changeLanguage('zh-CN')"
-                  ng-model="radioModel"
-                  btn-radio="'zh-CN'"
-                  ng-class="{
-                    'active': radioModel === 'zh-CN'
-                  }">中</label>
-        </div>
+
       </div>
     </div>
 
