@@ -1,192 +1,100 @@
-$fa-font-path: "/bower_components/font-awesome/fonts";
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "font-awesome/scss/font-awesome.scss";
 // endbower
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
+/*
 body {
   padding: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green;
 }
 
-/* Custom page header */
-.header {
-  margin-bottom: 10px;
+md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue;
+}
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
+md-input-container.md-input-invalid > md-icon.email,
+  md-input-container.md-input-invalid > md-icon.name {
+    color: red;
+}*/
+$gray: #eee;
+$placeholderFontSize: 14px;
+
+md-content.md-default-theme {
+  background-color: $gray;
+}
+md-card {
+  background-color: #fff;
+  h2:first-of-type {
     margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
   }
 }
+md-toolbar {
+  .md-button.md-default-theme {
+    border-radius: 99%; // round toolbar buttons
+  }
+}
+h2 {
+  font-weight: 400;
+}
+.md-toolbar-tools-bottom {
+  font-size: small;
+  & :last-child {
+    opacity: 0.8;
+  }
+}
+md-toolbar:not(.md-hue-1),
+.md-fab {
+  fill: #fff;
+}
+md-sidenav {
+  fill: #737373;
+  ng-md-icon {
+    position: relative;
+    top: 5px; // adjust for svg viewbox
+  }
+}
+.user-avatar {
+  border-radius: 99%;
+}
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
+md-item a {
   width: 100%;
+  margin: 0 !important;
 }
 
-.header .sign-in {
-  padding-top: 10px;
-  margin-left: 15px;
+md-item a.active {
+  background-color: #F0F0F0;
+  border-radius: 0px;
 }
 
-.header .navbar {
-  z-index: 3;
+.ap-add-applicant-btn {
+  vertical-align: baseline;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+.ap-toolbar .md-toolbar-tools {
+  background-color: #f6f6f6 !important;
+  color: #aaa !important;
+  font-size: $placeholderFontSize !important;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
+.ap-sidebar-item {
+  text-transform: none;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
+.md-title {
+  font-size: $placeholderFontSize;
 }
 
-/* circle-shape */
-.circle-shape {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-.circle-shape.has-border {
-  border: 1px solid;
-}
-.circle-shape.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
-}
-.circle-shape.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
+.ap-datepicker {
+  margin-top: 14px;
 }
 
-/* Sidebar style */
-#sidebar-wrapper {
-    z-index: 1000;
-    position: absolute;
-    width: 90px;
-    height: 100%;
-    background: #eee;
-    padding: 15px;
-}
-.sidebar-nav {
-    position: absolute;
-    padding: 0;
-    list-style: none;
-    margin-top: 15px;
-    margin-bottom: 15px;
+.ap-i18n-icon {
+  color: rgb(0,150,136) !important;
 }
 
-.sidebar-nav li {
-    line-height: 40px;
-    margin-bottom:10px;
-}
-
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
-    border-left: red 2px solid;
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
-}
-
-/* i18n controller style */
-.i18n-ctrl {
-  position: absolute;
-  bottom: 0px;
-  margin-bottom: 15px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+md-input-container label:not(.md-no-float):not(.md-container-ignore), md-input-container .md-placeholder {
+  font-size: $placeholderFontSize;
 }

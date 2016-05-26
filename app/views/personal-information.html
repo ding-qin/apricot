@@ -1,0 +1,36 @@
+<md-card>
+  <md-card-content>
+    <form name="PersonalInformationForm">
+      <md-input-container class="md-block">
+          <md-icon aria-label"mail">mail</md-icon>
+          <label translate="FORM_EMAIL"></label>
+          <input required type="email" name="email"
+                 ng-model="appCtrl.application.personalInformation.email"
+                 ng-change="appCtrl.saveOnClientSide()"
+                 ng-model-options="{ updateOn: 'blur' }"
+                 md-maxlength="30"
+                 minlength="10" maxlength="30" ng-pattern="/^.+@.+\..+$/" />
+          <div ng-messages="PersonalInformationForm.email.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']"
+                translate="FORM_VALIDATION_EMAIL">
+            </div>
+          </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+          <md-icon aria-label"room">room</md-icon>
+          <label translate="FORM_ADDRESS"></label>
+          <input required type="text" name="address"
+                 ng-model="appCtrl.application.personalInformation.address"
+                 ng-change="appCtrl.saveOnClientSide()"
+                 ng-model-options="{ updateOn: 'blur' }"
+                 minlength="10" maxlength="100"/>
+          <div ng-messages="PersonalInformationForm.address.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength']"
+                translate="FORM_VALIDATION_ADDRESS">
+            </div>
+          </div>
+      </md-input-container>
+    </form>
+  </md-card-content>
+</md-card>

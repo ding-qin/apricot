@@ -1,0 +1,75 @@
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event, -1)">
+  <md-icon class="ap-add-applicant-btn">add</md-icon>
+</md-button>
+
+<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+  <div flex-xs flex-gt-xs="30" ng-repeat="applicant in appCtrl.application.applicants">
+    <md-card>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-icon-button" aria-label="toggle" ng-click="showAdd($event, $index)">
+          <md-icon>fullscreen</md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="toggle">
+          <md-icon>close</md-icon>
+        </md-button>
+      </md-card-actions>
+
+      <md-divider></md-divider>
+
+      <md-card-header>
+        <md-card-header-text layout="row" layout-align="start center">
+          <span class="md-title" translate="{{applicant.name}}"></span>
+        </md-card-header-text>
+      </md-card-header>
+    </md-card>
+  </div>
+</md-content>
+
+<script type="text/ng-template" id="applicant.html">
+  <md-dialog aria-label="Mango (Fruit)">
+      <form name="applicantForm">
+      <md-dialog-content class="md-padding">
+
+              <div layout-gt-xs="row" layout-align="center top">
+                  <md-input-container flex>
+                      <md-icon>account_box</md-icon>
+                      <label translate="FORM_NAME"></label>
+                      <input ng-model="applicant.name" required>
+                  </md-input-container>
+
+                  <md-datepicker class="ap-datepicker"
+                    ng-model="applicant.birthday"
+                    md-placeholder="{{'FORM_BIRTHDAY' | translate}}"></md-datepicker>
+              </div>
+
+              <div layout-gt-xs="row">
+                  <md-input-container flex>
+                      <md-icon>flag</md-icon>
+                      <label translate="FORM_COUNTRY"></label>
+                      <md-select ng-model="applicant.country">
+                        <md-option ng-repeat="country in countries" value="{{country.abbrev}}">
+                          <span translate="{{country.nameLabel}}"></span>
+                        </md-option>
+                      </md-select>
+                  </md-input-container>
+
+                  <md-input-container flex>
+                      <md-icon>account_box</md-icon>
+                      <label translate="FORM_ZIPCODE"></label>
+                      <input ng-model="applicant.zipcode" md-maxlength="4">
+                  </md-input-container>
+              </div>
+
+      </md-dialog-content>
+      <md-dialog-actions>
+          <span flex></span>
+          <md-button ng-click="cancel()">
+              Cancel
+          </md-button>
+          <md-button ng-disabled="applicantForm.$invalid" ng-click="save()" class="md-primary">
+              Save
+          </md-button>
+      </md-dialog-actions>
+      </form>
+  </md-dialog>
+</script>

@@ -3,24 +3,20 @@
 angular.module('pocApp')
   .controller('I18nCtrl', ['$scope','$window','$translate',
       function ($scope, $window, $translate) {
-        var language = $window.navigator.userLanguage || $window.navigator.language;
-        $scope.radioModel = 'en-US';
-        $translate.use($scope.radioModel);
-        $scope.region = 'America';
-        if (language.indexOf('zh') === 0) {
-          $scope.radioModel = 'zh-CN';
-          $scope.region = 'China';
-        }
+        this.languages = [
+          {name:'English', abbrev:'en-US'},
+          {name:'中文', abbrev:'zh-CN'}
+        ];
+        this.selectedLanguage = 'en-US';
 
-        $scope.changeLanguage = function(langKey) {
-          $translate.use(langKey);
-          if (langKey.indexOf('zh') === 0) {
-            $scope.region = 'China';
-            $scope.radioModel = 'zh-CN';
-          } else {
-            $scope.region = 'America';
-            $scope.radioModel = 'en-US';
-          }
+        var language = $window.navigator.userLanguage || $window.navigator.language;
+        if (language.indexOf('zh') === 0) {
+          this.selectedLanguage = 'zh-CN';
+        }
+        $translate.use(this.selectedLanguage);
+        
+        this.changeLanguage = function() {
+          $translate.use(this.selectedLanguage);
         };
 
       }]);
