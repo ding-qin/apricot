@@ -1,6 +1,6 @@
 # Apricot
 
-This project is a POC of using Angularjs & Bootstrap CSS to implement form validation, cross-field validation, and basic flow chart elements.
+This project is a POC of using Angularjs & Angular Material to implement form validation, cross-field validation, and basic flow chart elements.
 Besides, the web page must be responsive and support internationalization.
 
 ## Tools
