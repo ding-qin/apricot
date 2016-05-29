@@ -1,4 +1,4 @@
-<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event, -1)">
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showApplicant($event, -1)">
   <md-icon class="ap-add-applicant-btn">add</md-icon>
 </md-button>
 
@@ -6,10 +6,10 @@
   <div flex-xs flex-gt-xs="30" ng-repeat="applicant in appCtrl.application.applicants">
     <md-card>
       <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-icon-button" aria-label="toggle" ng-click="showAdd($event, $index)">
+        <md-button class="md-icon-button" aria-label="toggle" ng-click="showApplicant($event, $index)">
           <md-icon>fullscreen</md-icon>
         </md-button>
-        <md-button class="md-icon-button" aria-label="toggle">
+        <md-button class="md-icon-button" aria-label="toggle" ng-click="deleteApplicant($event, $index)">
           <md-icon>close</md-icon>
         </md-button>
       </md-card-actions>
@@ -26,10 +26,9 @@
 </md-content>
 
 <script type="text/ng-template" id="applicant.html">
-  <md-dialog aria-label="Mango (Fruit)">
+  <md-dialog aria-label="Applicant Details">
       <form name="applicantForm">
-      <md-dialog-content class="md-padding">
-
+          <md-dialog-content class="md-padding">
               <div layout-gt-xs="row" layout-align="center top">
                   <md-input-container flex>
                       <md-icon>account_box</md-icon>
@@ -59,16 +58,28 @@
                       <input ng-model="applicant.zipcode" md-maxlength="4">
                   </md-input-container>
               </div>
+          </md-dialog-content>
+          <md-dialog-actions>
+              <span flex></span>
+              <md-button aria-label="Cancel" ng-click="cancel()" translate="FORM_BTN_CANCEL"></md-button>
+              <md-button aria-label="Save" ng-disabled="applicantForm.$invalid" ng-click="save()" class="md-primary" translate="FORM_BTN_SAVE"></md-button>
+          </md-dialog-actions>
+      </form>
+  </md-dialog>
+</script>
 
+
+<script type="text/ng-template" id="delete-applicant.html">
+  <md-dialog aria-label="Delete Applicant">
+      <md-dialog-content class="md-padding">
+        <div layout-gt-xs="row" layout-align="center center">
+            <p>{{'DIALOG_DELETE_APPLICANT' | translate}} {{applicantName}} ?</p>
+        </div>
       </md-dialog-content>
       <md-dialog-actions>
           <span flex></span>
-          <md-button ng-click="cancel()">
-              Cancel
-          </md-button>
-          <md-button ng-disabled="applicantForm.$invalid" ng-click="save()" class="md-primary">
-              Save
-          </md-button>
+          <md-button aria-label="Cancel" ng-click="cancel()" translate="FORM_BTN_CANCEL"></md-button>
+          <md-button aria-label="Delete" ng-click="delete()" class="md-primary" translate="FORM_BTN_DELETE"></md-button>
       </md-dialog-actions>
       </form>
   </md-dialog>

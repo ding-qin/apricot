@@ -16,7 +16,6 @@
     FORM_POSTCODE: 'Postcode',
     FORM_SUBURB: 'Suburb',
     FORM_PROPERTY: 'Property',
-    FORM_BTN_SUBMIT: 'Submit',
     FORM_NAME: 'Name',
     FORM_BIRTHDAY: 'Birthday',
     FORM_COUNTRY: 'Country',
@@ -27,6 +26,13 @@
     FORM_VALIDATION_ADDRESS: 'Please enter valid address',
 
     FORM_COUNTRY_AU: 'Australia',
-    FORM_COUNTRY_NZ: 'New Zealand'
+    FORM_COUNTRY_NZ: 'New Zealand',
+
+    FORM_BTN_SUBMIT: 'Submit',
+    FORM_BTN_CANCEL: 'Cancel',
+    FORM_BTN_SAVE: 'Save',
+    FORM_BTN_DELETE: 'Delete',
+
+    DIALOG_DELETE_APPLICANT: 'Are you sure to delete '
   });
 })();
