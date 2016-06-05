@@ -1,4 +1,4 @@
-<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showApplicant($event, -1)">
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showApplicantDialog($event, -1)">
   <md-icon class="ap-add-applicant-btn">add</md-icon>
 </md-button>
 
@@ -6,10 +6,10 @@
   <div flex-xs flex-gt-xs="30" ng-repeat="applicant in appCtrl.application.applicants">
     <md-card>
       <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-icon-button" aria-label="toggle" ng-click="showApplicant($event, $index)">
+        <md-button class="md-icon-button" aria-label="toggle" ng-click="showApplicantDialog($event, $index)">
           <md-icon>fullscreen</md-icon>
         </md-button>
-        <md-button class="md-icon-button" aria-label="toggle" ng-click="deleteApplicant($event, $index)">
+        <md-button class="md-icon-button" aria-label="toggle" ng-click="deleteApplicantDialog($event, $index)">
           <md-icon>close</md-icon>
         </md-button>
       </md-card-actions>

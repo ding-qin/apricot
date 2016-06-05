@@ -10,8 +10,8 @@
 angular.module('pocApp')
   .controller('ApplicantsCtrl', ['$scope', '$mdDialog', function ($scope, $mdDialog) {
     // ApplicantCtrl
-    function ApplicantCtrl($scope, $mdDialog, application, applicantIndex) {
-      
+    function ApplicantCtrl($scope, $mdDialog, applicant) {
+
       $scope.countries = [
         {
           'abbrev': 'AU',
@@ -23,73 +23,83 @@ angular.module('pocApp')
         }
       ];
 
-      if (applicantIndex >= 0) {
-        $scope.applicant = application.applicants[applicantIndex];
-      }
+      $scope.applicant = applicant;
 
       $scope.cancel = function() {
         $mdDialog.cancel();
       };
 
       $scope.save = function() {
-        if (applicantIndex >= 0) {
-          // Replace existing object in array
-          application.applicants.splice(applicantIndex, 1);
-          application.applicants.splice(applicantIndex, 0, $scope.applicant);
-        } else {
-          // Add new object to array
-          application.applicants.push($scope.applicant);
-        }
-
-        $mdDialog.hide();
+        $mdDialog.hide($scope.applicant);
       };
     } // ~ ApplicantCtrl
 
     // DeleteApplicantCtrl
-    function DeleteApplicantCtrl($scope, $mdDialog, application, applicantIndex) {
+    function DeleteApplicantCtrl($scope, $mdDialog, applicantName) {
 
-      if (applicantIndex >= 0) {
-        $scope.applicantName = application.applicants[applicantIndex].name;
-      }
+      $scope.applicantName = applicantName;
 
       $scope.cancel = function() {
         $mdDialog.cancel();
       };
 
       $scope.delete = function() {
-        if (applicantIndex >= 0) {
-          // Delete existing object in array
-          application.applicants.splice(applicantIndex, 1);
-        }
-
         $mdDialog.hide();
       };
     } // ~ DeleteApplicantCtrl
 
-    $scope.parentApplication = $scope.appCtrl.application;
-
-    $scope.showApplicant = function(ev, applicantIndex) {
+    $scope.showApplicantDialog = function(ev, applicantIndex) {
       $mdDialog.show({
         controller: ApplicantCtrl,
         templateUrl: 'applicant.html',
         targetEvent: ev,
         locals: {
-          'application': $scope.parentApplication,
-          'applicantIndex': applicantIndex
+          'applicant': $scope.selectApplicant(applicantIndex)
         }
+      }).then(function(savedApplicant) {
+        $scope.saveApplicant(applicantIndex, savedApplicant);
       });
     };
 
-    $scope.deleteApplicant = function(ev, applicantIndex) {
+    $scope.deleteApplicantDialog = function(ev, applicantIndex) {
       $mdDialog.show({
         controller: DeleteApplicantCtrl,
         templateUrl: 'delete-applicant.html',
         targetEvent: ev,
         locals: {
-          'application': $scope.parentApplication,
-          'applicantIndex': applicantIndex
+          'applicantName': $scope.selectApplicant(applicantIndex).name
         }
+      }).then(function() {
+        $scope.deleteApplicant(applicantIndex);
       });
     };
 
+    $scope.selectApplicant = function(applicantIndex) {
+      var selectedApplicant = {};
+      var countOfParentApplicants = $scope.appCtrl.application.applicants.length;
+      if (applicantIndex >= 0 && applicantIndex < countOfParentApplicants) {
+        selectedApplicant = $scope.appCtrl.application.applicants[applicantIndex];
+      }
+      return selectedApplicant;
+    };
+
+    $scope.saveApplicant = function(applicantIndex, savedApplicant) {
+      var countOfParentApplicants = $scope.appCtrl.application.applicants.length;
+      if (applicantIndex >= 0 && applicantIndex < countOfParentApplicants) {
+        // Replace existing object in array
+        $scope.appCtrl.application.applicants.splice(applicantIndex, 1);
+        $scope.appCtrl.application.applicants.splice(applicantIndex, 0, savedApplicant);
+      } else {
+        // Add new object to array
+        $scope.appCtrl.application.applicants.push(savedApplicant);
+      }
+    };
+
+    $scope.deleteApplicant = function(applicantIndex) {
+      var countOfParentApplicants = $scope.appCtrl.application.applicants.length;
+      if (applicantIndex >= 0 && applicantIndex < countOfParentApplicants) {
+        // Delete existing object in array
+        $scope.appCtrl.application.applicants.splice(applicantIndex, 1);
+      }
+    };
   }]);
