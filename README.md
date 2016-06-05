@@ -12,9 +12,9 @@ Besides, the web page must be responsive and support internationalization.
 
 ## Build & development
 
-- Refer to this wiki page to set up development environment :
--- OSX: https://github.com/ding-qin/apricot/wiki/How-to-setup-development-environment-on-osx
--- Ubuntu: https://github.com/ding-qin/apricot/wiki/How-to-set-up-development-environment-on-Ubuntu
+- Refer to this wiki page to set up development environment :<br/>
+1) OSX: https://github.com/ding-qin/apricot/wiki/How-to-setup-development-environment-on-osx<br/>
+2) Ubuntu: https://github.com/ding-qin/apricot/wiki/How-to-set-up-development-environment-on-Ubuntu
 - Git clone this repository to your local.
 - Go to 'apricot' folder and run `grunt` for building and `grunt serve` for preview.
 
