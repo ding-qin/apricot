@@ -8,7 +8,7 @@ describe('Controller: ApplicantsCtrl', function () {
   var controller, applicationScope, applicantsScope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$mdDialog_) {
+  beforeEach(inject(function ($controller, $rootScope) {
     applicationScope = $rootScope.$new();
     applicationScope.application = {
       applicants: [
@@ -24,8 +24,7 @@ describe('Controller: ApplicantsCtrl', function () {
     applicantsScope = applicationScope.$new();
     applicantsScope.appCtrl = applicationScope;
     controller = $controller('ApplicantsCtrl', {
-      $scope: applicantsScope,
-      $mdDialog: _$mdDialog_
+      $scope: applicantsScope
     });
 
   }));
