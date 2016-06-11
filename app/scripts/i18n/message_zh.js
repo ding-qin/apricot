@@ -12,6 +12,7 @@
     FORM_EMAIL: '电子邮件 *',
     FORM_MOBILE: '手机号码',
     FORM_LANDLINE: '固定电话',
+    FORM_PHONE: '电话号码',
     FORM_ADDRESS: '联系地址 *',
     FORM_POSTCODE: '邮编',
     FORM_SUBURB: '郊区',
@@ -20,6 +21,8 @@
     FORM_BIRTHDAY: '生日',
     FORM_COUNTRY: '国家',
     FORM_ZIPCODE: '邮政编码',
+    FORM_DRIVER_LICENSE: '驾照',
+    FORM_PRIVACY_CONSENT: '您同意我们向第三方查询您的个人信用记录吗？',
 
     FORM_VALIDATION_EMAIL:'请输入10到50位长度的电子邮件',
     FORM_VALIDATION_AT_LEAST_ONE_PHONE: '请输入手机号或者固定电话',

@@ -14,6 +14,10 @@ angular.module('pocApp')
     this.application=$cookies.getObject('ap-application');
     if (this.application === undefined) {
       this.application = {
+        personalInformation: {
+          phoneType: 'mobile',
+          privacyConsent: false
+        },
         applicants: [
           {
             'name': 'Tom Cruise',

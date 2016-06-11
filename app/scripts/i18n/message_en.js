@@ -12,6 +12,7 @@
     FORM_EMAIL: 'Email *',
     FORM_MOBILE: 'Mobile Phone',
     FORM_LANDLINE: 'Landline',
+    FORM_PHONE: 'Phone Number',
     FORM_ADDRESS: 'Address *',
     FORM_POSTCODE: 'Postcode',
     FORM_SUBURB: 'Suburb',
@@ -20,6 +21,8 @@
     FORM_BIRTHDAY: 'Birthday',
     FORM_COUNTRY: 'Country',
     FORM_ZIPCODE: 'Zip Code',
+    FORM_DRIVER_LICENSE: 'Driver License',
+    FORM_PRIVACY_CONSENT: 'Do you consent for us to check your credit history with external agencies?',
 
     FORM_VALIDATION_EMAIL:'Your email must be between 10 and 50 characters long and look like an e-mail address.',
     FORM_VALIDATION_AT_LEAST_ONE_PHONE: 'Please enter either mobile or landline',

@@ -1,32 +1,93 @@
-<form name="PersonalInformationForm">
-  <md-input-container class="md-block">
-      <md-icon aria-label"mail">mail</md-icon>
-      <label translate="FORM_EMAIL"></label>
-      <input required type="email" name="email"
-             ng-model="appCtrl.application.personalInformation.email"
-             ng-change="appCtrl.saveOnClientSide()"
-             ng-model-options="{ updateOn: 'blur' }"
-             md-maxlength="30"
-             minlength="10" maxlength="30" ng-pattern="/^.+@.+\..+$/" />
-      <div ng-messages="PersonalInformationForm.email.$error" role="alert">
-        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']"
-            translate="FORM_VALIDATION_EMAIL">
-        </div>
-      </div>
-  </md-input-container>
+<div layout="column" ng-controller="PersonalInformationCtrl as personalInfoCtrl">
+<div layout="row" layout-align="center center">
+    <md-content flex-gt-xs="80" class="md-padding">
+        <form name="PersonalInformationForm" ng-submit="$event.preventDefault()">
+            <div layout-gt-sm="row" layout-sm="column">
+                <md-input-container class="md-block" flex-gt-sm="50">
+                    <md-icon aria-label"mail">mail</md-icon>
+                    <label translate="FORM_EMAIL"></label>
+                    <input
+                        required
+                        type="email"
+                        name="email"
+                        ng-model="appCtrl.application.personalInformation.email"
+                        ng-change="appCtrl.saveOnClientSide()"
+                        ng-model-options="{ updateOn: 'blur' }"
+                        md-maxlength="30"
+                        minlength="10"
+                        maxlength="30"
+                        ng-pattern="/^.+@.+\..+$/"/>
+                    <div ng-messages="PersonalInformationForm.email.$error" role="alert">
+                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']" translate="FORM_VALIDATION_EMAIL"></div>
+                    </div>
+                </md-input-container>
 
-  <md-input-container class="md-block">
-      <md-icon aria-label"room">room</md-icon>
-      <label translate="FORM_ADDRESS"></label>
-      <input required type="text" name="address"
-             ng-model="appCtrl.application.personalInformation.address"
-             ng-change="appCtrl.saveOnClientSide()"
-             ng-model-options="{ updateOn: 'blur' }"
-             minlength="10" maxlength="100"/>
-      <div ng-messages="PersonalInformationForm.address.$error" role="alert">
-        <div ng-message-exp="['required', 'minlength', 'maxlength']"
-            translate="FORM_VALIDATION_ADDRESS">
-        </div>
-      </div>
-  </md-input-container>
-</form>
+                <md-input-container class="md-block" flex>
+                    <md-icon aria-label"driver license">drive_eta</md-icon>
+                    <label translate="FORM_DRIVER_LICENSE"></label>
+                    <input type="text"
+                        ng-model="appCtrl.application.personalInformation.driverLicense"
+                        ng-change="appCtrl.saveOnClientSide()"
+                        ng-model-options="{ updateOn: 'blur' }">
+                </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row" layout-sm="column">
+                <md-input-container flex-gt-sm="30">
+                    <md-icon aria-label"phone">phone</md-icon>
+                    <md-select aria-label="phone type"
+                        ng-model="appCtrl.application.personalInformation.phoneType"
+                        ng-change="appCtrl.saveOnClientSide()"
+                        ng-model-options="{ updateOn: 'blur' }">
+                        <md-option ng-repeat="phoneType in personalInfoCtrl.phoneTypes" value="{{phoneType.abbrev}}" aria-label="{{phoneType.abbrev}}">
+                            <span translate="{{phoneType.nameLabel}}"></span>
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate="FORM_PHONE"></label>
+                    <input type="text"
+                        ng-model="appCtrl.application.personalInformation.phone"
+                        ng-change="appCtrl.saveOnClientSide()"
+                        ng-model-options="{ updateOn: 'blur' }">
+                </md-input-container>
+            </div>
+
+            <md-input-container>
+              <md-switch ng-model="appCtrl.application.personalInformation.privacyConsent">
+                {{'FORM_PRIVACY_CONSENT' | translate}}
+              </md-switch>
+            </md-input-container>
+        </form>
+    </md-content>
+</div>
+
+<div layout="row" layout-align="center center" class="ap-content-margin">
+  <md-content flex-gt-xs="80" class="md-padding">
+      <form name="AddressForm" ng-submit="$event.preventDefault()">
+        <md-input-container class="md-block">
+            <md-icon aria-label"room">room</md-icon>
+            <md-autocomplete required
+                md-input-name="address"
+                md-input-minlength="1"
+                md-input-maxlength="100"
+                md-floating-label="{{'FORM_ADDRESS' | translate}}"
+                md-search-text="personalInfoCtrl.searchText"
+                md-items="item in personalInfoCtrl.querySearch(personalInfoCtrl.searchText)"
+                md-item-text="item"
+                ng-disabled="false"
+                md-no-cache="false"
+                md-selected-item="appCtrl.application.personalInformation.address">
+                <md-item-template>
+                  <span md-highlight-text="personalInfoCtrl.searchText">{{item}}</span>
+                </md-item-template>
+                <div ng-messages="AddressForm.address.$error" ng-if="AddressForm.address.$touched" role="alert">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength']" translate="FORM_VALIDATION_ADDRESS"></div>
+                </div>
+            </md-autocomplete>
+        </md-input-container>
+      </form>
+  </md-content>
+</div>
+</div>

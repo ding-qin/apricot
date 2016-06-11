@@ -2,7 +2,7 @@
   <md-icon class="ap-add-applicant-btn">add</md-icon>
 </md-button>
 
-<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+<div class="md-padding" layout-xs="column" layout="row" layout-wrap>
   <div flex-xs flex-gt-xs="30" ng-repeat="applicant in appCtrl.application.applicants">
     <md-card>
       <md-card-actions layout="row" layout-align="end center">
@@ -23,7 +23,7 @@
       </md-card-header>
     </md-card>
   </div>
-</md-content>
+</div>
 
 <script type="text/ng-template" id="applicant.html">
   <md-dialog aria-label="Applicant Details">

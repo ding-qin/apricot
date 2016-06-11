@@ -47,7 +47,7 @@
     <div layout="column" class="" layout-fill role="main">
       <md-toolbar ng-controller="ToolbarCtrl" class="ap-toolbar">
         <div class="md-toolbar-tools">
-          <md-button ng-click="showSidebar()" hide-gt-md aria-label="Menu" class="md-primary">
+          <md-button ng-click="showSidebar()" hide-gt-md aria-label="Menu">
             <md-icon>menu</md-icon>
           </md-button>
           <span flex></span>
@@ -62,7 +62,7 @@
         </div>
       </md-toolbar>
 
-      <md-content flex md-scroll-y ng-controller="ApplicationCtrl as appCtrl">
+      <md-content flex md-scroll-y ng-controller="ApplicationCtrl as appCtrl" class="ap-content">
         <div ng-view="" layout="column" layout-fill layout-padding></div>
       </md-content>
     </div>
