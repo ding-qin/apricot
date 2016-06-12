@@ -50,7 +50,11 @@
           <md-button ng-click="showSidebar()" hide-gt-md aria-label="Menu">
             <md-icon>menu</md-icon>
           </md-button>
+
           <span flex></span>
+
+          <md-button translate="BUTTON_SUBMIT"></md-button>
+
           <md-input-container ng-controller="I18nCtrl as i18nCtrl">
             <md-icon class="ap-i18n-icon">language</md-icon>
             <md-select ng-model="i18nCtrl.selectedLanguage" aria-label="language" ng-change="i18nCtrl.changeLanguage()">

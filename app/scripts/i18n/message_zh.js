@@ -35,6 +35,8 @@
     FORM_BTN_SAVE: '保存',
     FORM_BTN_DELETE: '删除',
 
-    DIALOG_DELETE_APPLICANT: '你确定要删除'
+    DIALOG_DELETE_APPLICANT: '你确定要删除',
+
+    BUTTON_SUBMIT: '提交'
   });
 })();

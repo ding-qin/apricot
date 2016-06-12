@@ -36,6 +36,8 @@
     FORM_BTN_SAVE: 'Save',
     FORM_BTN_DELETE: 'Delete',
 
-    DIALOG_DELETE_APPLICANT: 'Are you sure to delete '
+    DIALOG_DELETE_APPLICANT: 'Are you sure to delete ',
+
+    BUTTON_SUBMIT: 'Submit'
   });
 })();
