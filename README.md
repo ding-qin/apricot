@@ -1,6 +1,6 @@
 # Apricot
 
-This project is a POC of using Angularjs & Angular Material to implement form validation, cross-field validation, and basic flow chart elements.
+This project is a POC of using Angularjs 1.x & Angular Material to implement form validation.
 Besides, the web page must be responsive and support internationalization.
 
 ## Tools
